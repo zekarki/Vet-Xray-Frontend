@@ -1,0 +1,57 @@
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0px;
+  padding: 20px;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+.animal-button-row {
+  display: flex;
+  gap: 30px;
+  width: 600px;
+  margin-bottom: 5px;
+}
+
+.animal-button {
+  background-color: #e0e0e0;
+  color: #222222;
+  border: none;
+  padding: 20px 46.25px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.animal-button.active,
+.animal-button:hover {
+  background-color: #cb9898;
+}
+
+.silhouette-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  position: relative;
+}
+
+.patient-side {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 49%;
+  height: 600px; 
+}

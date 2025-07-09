@@ -1,0 +1,271 @@
+.silhouette-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 1.7 / 1;
+  margin: 0 auto;
+}
+
+.animal-silhouette {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+
+
+.highlight-zone {
+  position: absolute;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s, background-color 0.2s, outline 0.2s;
+  border: 2px dashed transparent; /* default to invisible */
+  box-sizing: border-box;
+}
+
+/* On hover: show checkered (dashed) outline */
+.highlight-zone.hovered {
+  opacity: 0.4;
+  background-color: #b0f4ffe0;
+  border: 2px dashed #0088aa; 
+}
+
+/* On click/selected: show solid outline */
+.highlight-zone.selected {
+  opacity: 0.5;
+  background-color: #b0f4ffe0;
+  border: 2px solid #0088aa;
+}
+
+
+/* === Top 3 horizontal zones (each ~33%) === */
+.tail {
+  top: 0%;
+  left: 0%;
+  width: 33.33%;
+  height: 50%;
+}
+
+.torso {
+  top: 0%;
+  left: 33.33%;
+  width: 33.33%;
+  height: 50%;
+}
+
+.head {
+  top: 0%;
+  left: 66.66%;
+  width: 33.33%;
+  height: 50%;
+}
+
+/* === Bottom 2 horizontal zones (each ~50%) === */
+.back-leg {
+  top: 50%;
+  left: 0%;
+  width: 50%;
+  height: 50%;
+}
+
+.front-leg {
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 50%;
+}
+
+.scan-button-container {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.start-scan-button {
+  padding: 12px 24px;
+  font-size: 1rem;
+  background-color: #e0e0e0;
+  color: #222;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.start-scan-button:hover:enabled {
+  background-color: #c5c5c5;
+}
+
+.start-scan-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.hover-label {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ffffff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #222;
+  font-weight: 500;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0.9;
+}
+
+/* === Scan Popup === */
+.scan-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  padding: 30px 40px;
+  border-radius: 10px;
+  border: 2px solid #000000;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  z-index: 999;
+  text-align: center;
+  min-width: 200px;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scan-content {
+  display: flex;
+  color: #222; /* or #000 if you want it bolder */
+  font-size: 1.1rem;
+  font-weight: 500;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+
+/* Spinner for loading animation */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 5px solid #ccc;
+  border-top: 5px solid #000000;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* === X-ray Image Overlay === */
+.xray-image-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 49%;
+  height: 300px;
+  background: white;
+  padding: 16px;
+  border-left: 2px solid #ccc;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+
+
+.xray-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.xray-label {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 1rem;
+  text-transform: capitalize;
+  color: #444;
+}
+
+.close-xray-button {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  color: #444;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.close-xray-button:hover {
+  color: #000;
+}
+
+/* === Added Styles === */
+.side-button-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;      /* sits just above Start Scan */
+}
+
+.side-button {
+  padding: 6px 14px;
+  border: 1px solid #0078d4;
+  background: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.side-button.active {
+  background: #0078d4;
+  color: #fff;
+}
+
+.side-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* horizontal strip for scan button + side buttons */
+.controls-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;          /* space between Start Scan and the side group */
+  margin-top: 0.75rem;   /* space below the silhouette */
+}
+
+.side-button-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.side-button {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #666;
+  background: #f5f5f5;
+  cursor: pointer;
+}
+
+.side-button.active {
+  font-weight: 600;
+  border-color: #0a84ff;
+  background: #e6f0ff;
+}

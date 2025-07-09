@@ -1,0 +1,49 @@
+.patient-list-container {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  height: 100%;
+  color: #333333;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.patient-list-scroll {
+  overflow-y: auto;
+  flex-grow: 1;
+  padding-right: 10px;
+  max-height: 100%;
+}
+
+.patient-row {
+  padding: 10px 0;
+  border-bottom: 1px solid #a4d264;
+}
+
+.patient-row:last-child {
+  border-bottom: none;
+}
+
+.patient-row p {
+  margin: 2px 0;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.added-time {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.patient-row {
+  cursor: pointer;            /* show it’s clickable */
+}
+
+.patient-row.selected {
+  background: #8db0e4;        /* light blue highlight */
+}
+
+.patient-row        { cursor: pointer; }
+.patient-row.selected { background: #b3e21a; }
