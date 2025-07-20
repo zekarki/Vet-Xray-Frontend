@@ -25,7 +25,7 @@ const PatientList: React.FC<Props> = ({ refreshTrigger, onSelect }) => {
   useEffect(() => {
     (async () => {
       try {
-        const res  = await fetch('http://localhost:8000/patient/', {
+        const res  = await fetch(`${import.meta.env.VITE_API_BASE_URL}/patient/`, {
           method: 'GET',
           credentials: 'include',
         });

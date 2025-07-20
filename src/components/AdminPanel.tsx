@@ -300,7 +300,7 @@ const AdminPanel: React.FC = () => {
   /* ---------------- Users API helpers ----------------------------- */
   const fetchUsers = async () => {
     try {
-      const res = await fetch('http://localhost:8000/user/', {
+      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/user/`, {
         method: 'GET',
         credentials: 'include',
       });
@@ -313,7 +313,7 @@ const AdminPanel: React.FC = () => {
 
   const addUser = async () => {
     try {
-      const res = await fetch('http://localhost:8000/user/', {
+      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/user/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -333,7 +333,7 @@ const AdminPanel: React.FC = () => {
     u: User & { original_student_id?: string }
   ) => {
     try {
-      const res = await fetch('http://localhost:8000/user/', {
+      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/user/`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -354,7 +354,7 @@ const AdminPanel: React.FC = () => {
   const deleteUser = async (student_id: string) => {
     if (!window.confirm(`Delete user ${student_id}?`)) return;
     try {
-      await fetch('http://localhost:8000/user/', {
+      await fetch(`${import.meta.env.VITE_API_BASE_URL}/user/`, {
         method: 'DELETE',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
@@ -369,7 +369,7 @@ const AdminPanel: React.FC = () => {
   /* ---------------- Patients API helpers -------------------------- */
   const fetchPatients = async () => {
     try {
-      const res = await fetch('http://localhost:8000/patient/', {
+      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/patient/`, {
         method: 'GET',
         credentials: 'include',
       });
@@ -382,7 +382,7 @@ const AdminPanel: React.FC = () => {
 
   const addPatient = async () => {
     try {
-      const res = await fetch('http://localhost:8000/patient/', {
+      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/patient/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -410,7 +410,7 @@ const AdminPanel: React.FC = () => {
 
   const updatePatient = async (p: Patient) => {
     try {
-      const res = await fetch('http://localhost:8000/patient/', {
+      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/patient/`, {
         method: 'PUT', // or PATCH, per your API
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -427,7 +427,7 @@ const AdminPanel: React.FC = () => {
   const deletePatient = async (patient_id: string) => {
     if (!window.confirm(`Delete patient ${patient_id}?`)) return;
     try {
-      await fetch('http://localhost:8000/patient/', {
+      await fetch(`${import.meta.env.VITE_API_BASE_URL}/patient/`, {
         method: 'DELETE',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },

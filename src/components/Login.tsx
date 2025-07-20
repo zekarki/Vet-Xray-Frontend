@@ -12,7 +12,7 @@ const Login: React.FC = () => {
 
   const handleLogin = async () => {
   try {
-    const response = await fetch('http://localhost:8000/user/', {
+    const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/user/`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',

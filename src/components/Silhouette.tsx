@@ -13,7 +13,7 @@ const PARTS = ['tail', 'torso', 'head', 'back-leg', 'front-leg'] as const;
 const Silhouette: React.FC<Props> = ({
   selectedAnimal,
   patientId,
-  saveEndpoint = 'http://localhost:8000/xray/',
+  saveEndpoint = `${import.meta.env.VITE_API_BASE_URL}/xray/`,
   onSaved,
 }) => {
   const [hoveredPart,  setHoveredPart]  = useState<string | null>(null);
@@ -133,7 +133,7 @@ const Silhouette: React.FC<Props> = ({
       </div>
 
       {/* debug line – remove if you like */}
-      <div style={{ marginTop:'6px', fontSize:'0.8rem' }}>
+      <div style={{ marginTop:'6px', fontSize:'0.8rem', color:'blue' }}>
         <b>Patient:</b> {patientId || 'None'}
       </div>
 
