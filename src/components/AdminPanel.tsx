@@ -2,9 +2,9 @@
 import React, {
   useEffect,
   useState,
-  ChangeEvent,
-  FormEvent,
 } from 'react';
+import type { ChangeEvent, FormEvent } from 'react';
+
 import './AdminPanel.css';
 
 /* ---------- Type definitions -------------------------------------- */

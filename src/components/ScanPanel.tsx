@@ -13,9 +13,10 @@ const ScanPanel: React.FC = () => {
   const [chosen, setChosen]           = useState<Patient | null>(null);
 
   useEffect(() => {
-    api.get("/patient/")
-       .then(res => setPatients(res.data.patients))
-       .catch(console.error);
+   api.get("/patient/")
+   .then((res: { data: { patients: Patient[] } }) => setPatients(res.data.patients))
+   .catch(console.error);
+
   }, []);
 
   return (
