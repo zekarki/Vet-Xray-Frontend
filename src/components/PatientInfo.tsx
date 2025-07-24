@@ -30,11 +30,11 @@ const PatientInfo: React.FC<PatientInfoProps> = ({ onSave }) => {
   console.log("API Key: " + AK);
 
   try {
-    const response = await fetch("http://localhost:8000/patient/", {
+    const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/patient/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Cookie": AK
+        // "Cookie": AK
       },
       credentials: "include",
       body: JSON.stringify(formData),

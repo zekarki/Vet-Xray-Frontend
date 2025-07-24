@@ -31,9 +31,11 @@ const Login: React.FC = () => {
       localStorage.setItem("firstName", data.first_name);
       localStorage.setItem("isStaff", data.is_staff ? "true" : "false");
       localStorage.setItem("loggedIn", "true");
+      // localStorage.setItem("APIKey", data.api_key);
 
       // Delay navigation to ensure session is set
-      setTimeout(() => navigate('/main'), 100); // ← no reload
+      // setTimeout(() => navigate('/main'), 100); // ← no reload
+      navigate('/main'); // ← no reload
     } else {
       setErrorMsg(data.error || 'Login failed');
     }
